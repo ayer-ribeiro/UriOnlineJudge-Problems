@@ -47,7 +47,7 @@ int number_points (vector<vector<float>> centre){
         for (int j = i+ 1; j < centre.size(); j++){
             if (is_equal(centre[i], centre[j])){
                 equals++;
-            }else break;
+            }
             
         }
         if (max < equals) max = equals;
@@ -59,9 +59,9 @@ int number_points (vector<vector<float>> centre){
 int main(int argc, const char * argv[]) {
     
     
-    int n_points = 1;
+    int n_points;
+    cin >> n_points;
     while (n_points != 0) {
-        cin >> n_points;
         vector<vector <int>> points;
         points.resize(n_points);
         
@@ -73,6 +73,12 @@ int main(int argc, const char * argv[]) {
             cin >> points[i][0] >> points [i][1]; // [i][0] = x and [i][1] = y
         }
         
+        for( int i = 0; i < points.size(); i++){
+            for (int j = 0; j < points[i].size(); j++){
+                cout << points[i][j] << " ";
+            }
+            cout << "\n";
+        }
         
         for(int i = 0; i<n_points; i++){
             for(int j = i + 1; j < n_points; j++){
@@ -90,8 +96,9 @@ int main(int argc, const char * argv[]) {
             }
         }
         cout << number_points(centre) << "\n";
+        cin >> n_points;
     }
     
-    cout << n_points << "\n";
+    //cout << n_points << "\n";
     return 0;
 }
