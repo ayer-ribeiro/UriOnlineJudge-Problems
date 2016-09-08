@@ -1,3 +1,18 @@
+/*
+    Oceano Profundo! Faça-o Raso! - URI Online Judge | 1398
+    Autor: Ayer Ribeiro de Souza Netto
+    Observações: BigInteger
+*/
+
+/*
+    Entrada:
+        Número binário de até 1000 dígitos terminado em # 
+        podendo estar em mais de uma linha
+    Saída:
+        "YES" caso entrada%131071 == 0
+        "NO" caso contrário
+*/
+
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Scanner;
@@ -18,6 +33,8 @@ public class Main {
             binario = "";
             String entrada;
             char temp = ' ';
+
+            //Um único caso teste pode estar em mais de uma linha
             while(temp != '#'){
                 entrada = in.nextLine();
                 temp = entrada.charAt(entrada.length() - 1);
@@ -26,6 +43,7 @@ public class Main {
 
             if(binario.length() == 1) break;
             
+            //Apaga o último elemento '#'
             if (!binario.isEmpty()) binario = binario.substring (0, binario.length() - 1);
             
             yourNumber = new BigInteger(binario, 2);           
